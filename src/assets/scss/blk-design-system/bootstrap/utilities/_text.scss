@@ -1,0 +1,162 @@
+// stylelint-disable declaration-no-important
+
+//
+// Text
+//
+
+.text-monospace {
+  font-family: $font-family-monospace;
+}
+
+// Alignment
+
+.text-justify {
+  text-align: justify !important;
+}
+.text-nowrap {
+  white-space: nowrap !important;
+}
+.text-truncate {
+  @include text-truncate;
+}
+
+// Responsive alignment
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .text#{$infix}-left {
+      text-align: left !important;
+    }
+    .text#{$infix}-right {
+      text-align: right !important;
+    }
+    .text#{$infix}-center {
+      text-align: center !important;
+    }
+  }
+}
+
+// Transformation
+
+.text-lowercase {
+  text-transform: lowercase !important;
+}
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+.text-capitalize {
+  text-transform: capitalize !important;
+}
+
+// Weight and italics
+
+.font-weight-light {
+  font-weight: $font-weight-light !important;
+}
+.font-weight-normal {
+  font-weight: $font-weight-normal !important;
+}
+.font-weight-bold {
+  font-weight: $font-weight-bold !important;
+}
+.font-italic {
+  font-style: italic !important;
+}
+
+// Contextual colors
+
+.text-white {
+  color: $white !important;
+}
+
+@each $color, $value in $theme-colors {
+  @include text-emphasis-variant(".text-#{$color}", $value);
+}
+
+.text-body {
+  color: $body-color !important;
+}
+.text-muted {
+  color: $text-muted !important;
+}
+
+.text-black-50 {
+  color: rgba($black, 0.5) !important;
+}
+.text-white-50 {
+  color: rgba($white, 0.5) !important;
+}
+
+.title-hs {
+  top: 0px;
+  left: 0px;
+  width: 262px;
+  height: 43px;
+  text-align: center;
+  font: normal normal normal 43px/50px KonsensBold ☞;
+  letter-spacing: 1.2px;
+  color: #FFFFFF;
+}
+
+.hs-text {
+  top: 50px;
+  left: 7px;
+  width: 249px;
+  height: 43px;
+  text-align: center;
+  font: normal normal normal 43px/50px KonsensBold ☞;
+  font-weight: bold;
+  letter-spacing: 1.2px;
+  color: #17689F;
+}
+
+.title-division {
+  top: 258px;
+  left: 60% !important;
+width: 262px;
+height: 93px;
+text-align: center;
+font: normal normal normal 43px/50px KonsensBold ☞;
+letter-spacing: 1.2px;
+opacity: 1;
+}
+
+.hs-body {
+  top: 376px;
+left: 415px;
+width: 536px;
+height: 60px;
+text-align: center;
+font: normal normal normal 14px/21px Montserrat;
+letter-spacing: 0.17px;
+color: #FFFFFF;
+opacity: 1;
+}
+
+.hs-body1 {
+  top: 376px;
+left: 415px;
+width: 536px;
+height: 60px;
+font: normal normal normal 14px/21px Montserrat;
+letter-spacing: 0.17px;
+color: #FFFFFF;
+opacity: 1;
+}
+
+.align-hs {
+  margin-left: 109px;
+}
+
+.hanasft-title {
+  font-size: 35px;
+    font-weight: bold;
+}
+
+// Misc
+
+.text-hide {
+  @include text-hide($ignore-warning: true);
+}
